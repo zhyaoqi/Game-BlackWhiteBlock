@@ -52,9 +52,12 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     private Bitmap blackPressBitmap;
     private Bitmap whiteBitmap;
 
+    private boolean speedUp = true;
     private int mSpeed;
 
     private final int SPEED_DEFAULT = 10;
+
+    private int speedInit ;
 
     private int acceleration;
 
@@ -98,9 +101,6 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
     };
 
-    public void setHandler(Handler handler){
-        this.handler = handler;
-    }
     public GameSurfaceView(Context context) {
         this(context,null);
     }
@@ -243,8 +243,10 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
      * 加速
      */
     private void speedUp(){
-        if (score%acceleration == 0 ){
-            mSpeed++;
+        if (isSpeedUp()) {
+            if (score % acceleration == 0) {
+                mSpeed++;
+            }
         }
     }
     private void drawBg() {
@@ -316,7 +318,7 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         reset();
-                        setmGameStatus(GameSurfaceView.GameStatus.WAITTING);
+                        mGameStatus = GameSurfaceView.GameStatus.WAITTING;
                     }
                 })
                 .setNegativeButton("结束游戏", new DialogInterface.OnClickListener() {
@@ -330,17 +332,17 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     }
 
     private void reset(){
-        mSpeed = DensityUtils.dp2px(getContext(),SPEED_DEFAULT);
+        mSpeed = DensityUtils.dp2px(getContext(), speedInit);
         score = 0;
         blockGroupList = new ArrayList<>();
     };
 
-    public GameStatus getmGameStatus() {
-        return mGameStatus;
+    public boolean isSpeedUp() {
+        return speedUp;
     }
 
-    public void setmGameStatus(GameStatus mGameStatus) {
-        this.mGameStatus = mGameStatus;
+    public void setSpeedUp(boolean speedUp) {
+        this.speedUp = speedUp;
     }
 
     public int getVibratorDuration() {
@@ -385,12 +387,13 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         this.blackPressBitmap = blackPressBitmap;
     }
 
-    public int getmSpeed() {
-        return mSpeed;
+    public int getSpeedInit() {
+        return speedInit;
     }
 
-    public void setmSpeed(int mSpeed) {
-        this.mSpeed = mSpeed;
+    public void setSpeedInit(int speedInit) {
+        this.speedInit = speedInit;
+        mSpeed = speedInit;
     }
 
     public int getAcceleration() {

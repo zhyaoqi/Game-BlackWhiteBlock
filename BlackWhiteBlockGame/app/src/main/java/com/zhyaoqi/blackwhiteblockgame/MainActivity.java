@@ -18,7 +18,23 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
         GameSurfaceView game = new GameSurfaceView(this);
+
+//        setValues(game);
+
         setContentView(game);
+    }
+
+    private void setValues(GameSurfaceView game){
+        //设置初始速度
+        game.setSpeedInit(10);
+        //设置是否加速
+        game.setSpeedUp(true);
+        //设置加速度
+        game.setAcceleration(10);
+        //设置屏幕纵向有几个格子
+        game.setVerticalCount(5);
+        //设置屏幕横向有几个格子
+        game.setHorizontalCount(5);
     }
 
 }
