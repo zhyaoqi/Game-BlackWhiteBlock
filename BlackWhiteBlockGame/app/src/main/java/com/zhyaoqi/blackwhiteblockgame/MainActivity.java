@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
-        final GameSurfaceView game = new GameSurfaceView(this);
+        GameSurfaceView game = new GameSurfaceView(this);
         setContentView(game);
     }
 
