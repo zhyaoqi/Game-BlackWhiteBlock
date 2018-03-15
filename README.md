@@ -1,4 +1,4 @@
 # Game-BlackWhiteBlock
 ## 基于Android的SurfaceView控件的黑白块游戏
-![image](https://github.com/zhyaoqi/Game-BlackWhiteBlock/blob/master/image/image1.jpg) 
-![image](https://github.com/zhyaoqi/Game-BlackWhiteBlock/blob/master/image/image2.jpg)
+![](https://github.com/zhyaoqi/Game-BlackWhiteBlock/blob/master/image/image1.jpg) 
+![](https://github.com/zhyaoqi/Game-BlackWhiteBlock/blob/master/image/image2.jpg)
