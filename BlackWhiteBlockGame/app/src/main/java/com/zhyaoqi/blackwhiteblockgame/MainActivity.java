@@ -8,6 +8,11 @@ import android.view.WindowManager;
 
 import com.zhyaoqi.blackwhiteblockgame.view.GameSurfaceView;
 
+/**
+ * Created by zhyaoqi on 2016/10/25.
+ * 邮箱:924690337@qq.com
+ * 描述：
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -24,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(game);
     }
 
+
+    //设置自定义的参数
     private void setValues(GameSurfaceView game){
         //设置初始速度
         game.setSpeedInit(10);

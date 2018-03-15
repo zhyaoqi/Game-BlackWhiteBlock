@@ -128,7 +128,7 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         horizontalCount = HORIZONTAL_COUNT_DEFAULT;
         verticalCount = VERTICAL_COUNT_DEFAULT;
 
-        mSpeed = DensityUtils.dp2px(getContext(),SPEED_DEFAULT);
+        mSpeed = speedInit = DensityUtils.dp2px(getContext(),SPEED_DEFAULT);
 
         acceleration = DensityUtils.dp2px(getContext(),ACCELERATION_DEFAULT);
 
@@ -332,7 +332,7 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     }
 
     private void reset(){
-        mSpeed = DensityUtils.dp2px(getContext(), speedInit);
+        mSpeed = speedInit;
         score = 0;
         blockGroupList = new ArrayList<>();
     };
